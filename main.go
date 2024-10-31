@@ -14,7 +14,7 @@ func main() {
 	mux.Handle("/", fileServer)
 
 	server := http.Server{
-		Addr:    "localhost:80",
+		Addr:    "0.0.0.0:8080",
 		Handler: mux,
 	}
 
@@ -23,7 +23,5 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	fmt.Println("Server is running")
 
 }
