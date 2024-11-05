@@ -2,9 +2,9 @@ FROM golang
 
 WORKDIR /app
 
-COPY . .
-
 VOLUME /mnt/shared
+
+COPY . .
 
 RUN go build -o file_server main.go
 

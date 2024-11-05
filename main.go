@@ -3,19 +3,18 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"path/filepath"
 )
 
 func main() {
 
-	fileServer := http.FileServer(http.Dir(filepath.Dir(`c:\Downloads`)))
+	fileServer := http.FileServer(http.Dir("/mnt/shared"))
 
 	mux := http.NewServeMux()
 
 	mux.Handle("/", fileServer)
 
 	server := http.Server{
-		Addr:    "localhost:8080",
+		Addr:    "0.0.0.0:8080",
 		Handler: mux,
 	}
 
